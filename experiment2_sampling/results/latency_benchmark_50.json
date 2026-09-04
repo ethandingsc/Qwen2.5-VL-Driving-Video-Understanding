@@ -1,0 +1,2870 @@
+{
+  "experiment": "experiment2_latency_benchmark",
+  "model": "/root/autodl-tmp/models/experiment2/qwen2.5vl-automingo-merged",
+  "protocol": {
+    "num_videos": 50,
+    "candidate_frames": 64,
+    "strategies": [
+      "uniform",
+      "dense",
+      "event-aware"
+    ],
+    "frame_budgets": [
+      4,
+      8,
+      16
+    ],
+    "warmup_runs": 10,
+    "seed": 42,
+    "generation": {
+      "max_new_tokens": 2,
+      "do_sample": false
+    },
+    "timing_scope": "model.generate only",
+    "processor_included": false,
+    "sampling_included": false
+  },
+  "summary": {
+    "uniform": {
+      "4": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 128.36586982011795,
+          "median": 125.70691667497158,
+          "p95": 142.78477430343628,
+          "std": 7.873089821175351
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 156.20085291564465,
+          "median": 155.112162232399,
+          "p95": 168.70055347681046,
+          "std": 4.267236251547224
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 236.52755923569202,
+          "median": 235.47007143497467,
+          "p95": 246.66806682944298,
+          "std": 4.05743503715886
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    },
+    "dense": {
+      "4": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 125.92040561139584,
+          "median": 124.85509365797043,
+          "p95": 134.4889961183071,
+          "std": 4.299959746606131
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 157.13971436023712,
+          "median": 155.06387688219547,
+          "p95": 169.06516626477242,
+          "std": 7.295410723922499
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 236.30558244884014,
+          "median": 234.98839139938354,
+          "p95": 247.98832461237907,
+          "std": 4.90808125831806
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    },
+    "event-aware": {
+      "4": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 126.94288328289986,
+          "median": 125.55325776338577,
+          "p95": 137.67922669649124,
+          "std": 5.163275809101076
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 157.3873185366392,
+          "median": 155.31625971198082,
+          "p95": 170.4702414572239,
+          "std": 5.784133643040368
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 50,
+        "latency_ms": {
+          "mean": 235.5555821210146,
+          "median": 235.02225428819656,
+          "p95": 242.11708456277847,
+          "std": 2.8322664227064127
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    }
+  },
+  "samples": {
+    "uniform": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 127.52536684274673,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 122.09486961364746,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 127.39850208163261,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 124.55623596906662,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 139.95793461799622,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 127.11256369948387,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 142.78477430343628,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 134.67710092663765,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 158.67595374584198,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 125.79399347305298,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 130.22122904658318,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 126.5420913696289,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 125.12343749403954,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 136.5581527352333,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 126.21502578258514,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 126.27412751317024,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 123.03442507982254,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 125.54426491260529,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 135.2386698126793,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 125.45081600546837,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 122.90329858660698,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 122.76266887784004,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 125.07427856326103,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 127.12099775671959,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 122.5879155099392,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 123.58307093381882,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 124.60047006607056,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 125.42201206088066,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 124.58740919828415,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 122.84072488546371,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 127.23864614963531,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 132.18482211232185,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 123.22908267378807,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 127.29122117161751,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 125.11180713772774,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 159.1489315032959,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 129.2625591158867,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 126.69514492154121,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 125.61983987689018,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 128.1009502708912,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 123.66052344441414,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 123.93505126237869,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 125.29359012842178,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 122.46105074882507,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 124.00851771235466,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 124.10350143909454,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 140.04341512918472,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 124.82300400733948,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 126.3669952750206,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 127.45245546102524,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 154.49120104312897,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 152.2498056292534,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 157.92106091976166,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 153.0141718685627,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 155.4204747080803,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 157.74820372462273,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 171.7761531472206,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 155.8874286711216,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 153.599601238966,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 155.63280880451202,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 152.80579775571823,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 155.19484505057335,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 156.24837204813957,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 154.77735921740532,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 152.46589109301567,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 155.13374283909798,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 153.65346521139145,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 154.15939316153526,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 168.70055347681046,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 172.3642274737358,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 157.01578557491302,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 156.41389414668083,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 154.8973247408867,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 155.76666966080666,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 154.83589842915535,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 153.38683500885963,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 154.57913279533386,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 154.95697781443596,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 153.8410596549511,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 154.34472635388374,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 156.0007967054844,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 155.13546764850616,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 156.01802244782448,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 154.13040295243263,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 154.05913069844246,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 163.64724561572075,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 156.06427192687988,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 155.1860310137272,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 154.83980253338814,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 154.45708483457565,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 152.92467921972275,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 158.3716683089733,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 155.0905816257,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 152.99756824970245,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 157.71174803376198,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 154.07558903098106,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 156.02155029773712,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 160.0133776664734,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 154.0534719824791,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 155.9612937271595,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 236.69172078371048,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 230.9754230082035,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 234.80729758739471,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 243.0180460214615,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 237.9348948597908,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 235.39860174059868,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 234.35437679290771,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 231.66421800851822,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 237.02646419405937,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 236.34443804621696,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 235.46848818659782,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 241.41784384846687,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 235.62652990221977,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 236.3802269101143,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 233.6646430194378,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 235.46846583485603,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 232.21221938729286,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 232.94585198163986,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 250.59042870998383,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 233.002919703722,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 234.36636477708817,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 237.64299601316452,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 232.66353830695152,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 233.8564395904541,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 233.34940895438194,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 235.07533222436905,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 236.22183874249458,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 233.9276187121868,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 236.60415038466454,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 238.1930947303772,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 234.54676941037178,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 249.00660291314125,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 237.52185329794884,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 235.44852808117867,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 237.61901631951332,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 243.85443329811096,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 236.31629720330238,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 236.78405582904816,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 246.66806682944298,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 232.742328196764,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 236.14099621772766,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 235.1747527718544,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 235.27229577302933,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 234.10885781049728,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 236.57091706991196,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 235.47165468335152,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 239.9091236293316,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 238.33760246634483,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 234.28520560264587,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 233.70472341775894,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    },
+    "dense": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 129.12945821881294,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 121.50147184729576,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 127.13756039738655,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 125.49588456749916,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 121.6249130666256,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 125.88521465659142,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 127.83435359597206,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 124.13240969181061,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 127.70455330610275,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 124.43248555064201,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 126.75104290246964,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 122.65601754188538,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 122.93342128396034,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 141.98395609855652,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 126.53624266386032,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 128.95584478974342,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 123.38877096772194,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 122.6867102086544,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 143.17607507109642,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 126.54845789074898,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 123.78231063485146,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 122.71380424499512,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 123.17651882767677,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 123.69316816329956,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 122.48997762799263,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 125.13675913214684,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 126.13169476389885,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 123.98112937808037,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 124.25834313035011,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 124.90599974989891,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 123.30852448940277,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 128.6812536418438,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 123.0270154774189,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 123.84499609470367,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 125.58825314044952,
+          "generated_tokens": 2,
+          "answer": "D"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 132.6078288257122,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 123.06313961744308,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 126.527089625597,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 124.02758002281189,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 125.24264678359032,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 123.48630279302597,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 127.61588767170906,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 122.46876955032349,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 124.80418756604195,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 124.07947704195976,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 125.92611089348793,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 126.10802426934242,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 127.31599062681198,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 123.04365634918213,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 134.4889961183071,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 156.1097763478756,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 150.91415867209435,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 155.84053099155426,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 158.18502008914948,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 162.53803297877312,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 165.69897159934044,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 155.33890947699547,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 153.69310230016708,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 152.8376154601574,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 154.38898652791977,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 155.00837191939354,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 164.07055407762527,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 156.1623364686966,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 154.98032048344612,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 156.64494410157204,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 152.10971608757973,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 154.01196107268333,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 153.67576852440834,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 169.06516626477242,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 158.97371992468834,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 154.30837869644165,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 155.78098595142365,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 153.70289236307144,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 154.32769805192947,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 153.88775244355202,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 153.6858156323433,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 152.2447094321251,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 156.414233148098,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 155.72232380509377,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 153.787761926651,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 155.98154067993164,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 161.81040555238724,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 152.56417542696,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 151.2565053999424,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 154.19532731175423,
+          "generated_tokens": 2,
+          "answer": "D"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 163.2913462817669,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 156.41499310731888,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 154.32221814990044,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 153.57884019613266,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 154.10946309566498,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 178.43055725097656,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 154.5514054596424,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 155.65413609147072,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 194.8355697095394,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 157.3413349688053,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 153.00212800502777,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 156.5641649067402,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 157.2393849492073,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 152.6123248040676,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 155.1193818449974,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 231.2755100429058,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 235.70401594042778,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 231.7425273358822,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 237.50732466578484,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 230.97680881619453,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 237.97086253762245,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 237.5587373971939,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 246.06187269091606,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 235.79049855470657,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 235.60112714767456,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 233.04807767271996,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 232.23943263292313,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 234.31702330708504,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 241.62334576249123,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 231.72562196850777,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 233.39607566595078,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 233.67198929190636,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 234.15596783161163,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 247.98832461237907,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 246.7024140059948,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 231.00987076759338,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 234.59602892398834,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 236.49844899773598,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 236.2663708627224,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 235.92417314648628,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 236.2746298313141,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 233.7728925049305,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 234.40676555037498,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 235.12306809425354,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 236.73899844288826,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 233.8714748620987,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 249.82960522174835,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 238.22952434420586,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 232.45756328105927,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 235.7359081506729,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 254.61702793836594,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 237.7319224178791,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 234.68351736664772,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 233.56986790895462,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 233.52069035172462,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 232.2949804365635,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 234.85371470451355,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 233.65169018507004,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 234.7230166196823,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 236.97030916810036,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 233.70246216654778,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 235.99359393119812,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 233.37472230196,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 236.40843853354454,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 239.3902875483036,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    },
+    "event-aware": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 136.81238144636154,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 128.05616855621338,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 125.27210637927055,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 122.63226881623268,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 126.45197659730911,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 126.6169585287571,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 128.14295664429665,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 127.85378471016884,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 125.30525401234627,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 124.74868446588516,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 125.33655017614365,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 125.7699653506279,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 128.6427602171898,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 123.54126200079918,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 123.58948215842247,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 124.71292912960052,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 123.01363795995712,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 122.95762449502945,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 137.67922669649124,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 123.65312874317169,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 122.59096279740334,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 124.67694282531738,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 127.58474797010422,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 126.02303922176361,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 122.77553975582123,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 123.55176731944084,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 123.13389778137207,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 124.67597424983978,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 122.78372049331665,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 126.62991881370544,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 123.10201302170753,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 145.6373706459999,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 123.885877430439,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 126.36884674429893,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 123.10628220438957,
+          "generated_tokens": 2,
+          "answer": "D"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 137.67217099666595,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 135.5949267745018,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 123.38259071111679,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 142.98803731799126,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 126.1608861386776,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 130.06728515028954,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 127.46508046984673,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 126.11513584852219,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 123.1895387172699,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 123.74231591820717,
+          "generated_tokens": 2,
+          "answer": "D"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 126.62819027900696,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 128.3281333744526,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 127.49295681715012,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 126.50453671813011,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 124.49637055397034,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 152.68991887569427,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 153.31079810857773,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 154.5555777847767,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 153.30488607287407,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 155.31083568930626,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 155.3133837878704,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 158.9730978012085,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 157.74675086140633,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 167.2639511525631,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 160.80767288804054,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 153.55008095502853,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 152.7840569615364,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 155.32319992780685,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 164.355356246233,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 155.6774415075779,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 154.32490408420563,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 158.3966165781021,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 153.8650207221508,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 162.00098022818565,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 153.71936932206154,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 154.40668165683746,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 154.0229357779026,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 154.98600900173187,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 153.76301109790802,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 156.1095006763935,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 155.32933920621872,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 170.4702414572239,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 153.9170816540718,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 153.3161737024784,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 152.4438001215458,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 156.706053763628,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 168.9685508608818,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 160.46268120408058,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 153.56148779392242,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 180.71944266557693,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 157.49312564730644,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 171.2755151093006,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 153.4452959895134,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 163.9895662665367,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 160.76070442795753,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 155.32025694847107,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 154.67821806669235,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 157.03404694795609,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 155.64145520329475,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 154.31295335292816,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 155.31913563609123,
+          "generated_tokens": 2,
+          "answer": "A"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 153.1890407204628,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 156.31147846579552,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 153.2619446516037,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 154.87629920244217,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 235.598124563694,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 234.32258144021034,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 241.61742255091667,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_211.mp4",
+          "latency_ms": 231.82449117302895,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_201.mp4",
+          "latency_ms": 233.55421796441078,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_163.mp4",
+          "latency_ms": 236.49364709854126,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_146.mp4",
+          "latency_ms": 236.1321486532688,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_92.mp4",
+          "latency_ms": 235.1500354707241,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_139.mp4",
+          "latency_ms": 238.45233395695686,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_35.mp4",
+          "latency_ms": 236.92944645881653,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_113.mp4",
+          "latency_ms": 232.93540254235268,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_112.mp4",
+          "latency_ms": 233.90121385455132,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_141.mp4",
+          "latency_ms": 234.01682078838348,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_2.mp4",
+          "latency_ms": 241.1235086619854,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_206.mp4",
+          "latency_ms": 232.73852840065956,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_73.mp4",
+          "latency_ms": 236.3065741956234,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_110.mp4",
+          "latency_ms": 235.65245047211647,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_190.mp4",
+          "latency_ms": 234.08151417970657,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_33.mp4",
+          "latency_ms": 236.6378828883171,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_20.mp4",
+          "latency_ms": 233.53122919797897,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_47.mp4",
+          "latency_ms": 236.4470809698105,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_227.mp4",
+          "latency_ms": 232.937041670084,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_101.mp4",
+          "latency_ms": 233.90023037791252,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_172.mp4",
+          "latency_ms": 233.6123362183571,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_256.mp4",
+          "latency_ms": 234.53234136104584,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_170.mp4",
+          "latency_ms": 233.31696167588234,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_199.mp4",
+          "latency_ms": 232.5936295092106,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_254.mp4",
+          "latency_ms": 234.68397185206413,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_274.mp4",
+          "latency_ms": 232.51868411898613,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_143.mp4",
+          "latency_ms": 235.4566864669323,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_264.mp4",
+          "latency_ms": 232.09473490715027,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_258.mp4",
+          "latency_ms": 232.94104635715485,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_220.mp4",
+          "latency_ms": 235.18700897693634,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_119.mp4",
+          "latency_ms": 232.59000852704048,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_52.mp4",
+          "latency_ms": 236.1856922507286,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_88.mp4",
+          "latency_ms": 242.19899624586105,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_156.mp4",
+          "latency_ms": 241.67611077427864,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_273.mp4",
+          "latency_ms": 242.85680800676346,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_135.mp4",
+          "latency_ms": 242.11708456277847,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_95.mp4",
+          "latency_ms": 235.3505939245224,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_234.mp4",
+          "latency_ms": 237.8598377108574,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_266.mp4",
+          "latency_ms": 234.89447310566902,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_188.mp4",
+          "latency_ms": 233.50904509425163,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_130.mp4",
+          "latency_ms": 235.1926900446415,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_12.mp4",
+          "latency_ms": 237.18253523111343,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_203.mp4",
+          "latency_ms": 234.8923534154892,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_232.mp4",
+          "latency_ms": 233.43195393681526,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_145.mp4",
+          "latency_ms": 235.33855006098747,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_5.mp4",
+          "latency_ms": 236.9510866701603,
+          "generated_tokens": 2,
+          "answer": "B"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_267.mp4",
+          "latency_ms": 234.3299575150013,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    }
+  },
+  "failures": []
+}

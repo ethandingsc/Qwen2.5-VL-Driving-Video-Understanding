@@ -1,0 +1,332 @@
+{
+  "experiment": "experiment2_latency_benchmark",
+  "model": "/root/autodl-tmp/models/experiment2/qwen2.5vl-automingo-merged",
+  "protocol": {
+    "num_videos": 3,
+    "candidate_frames": 64,
+    "strategies": [
+      "uniform",
+      "dense",
+      "event-aware"
+    ],
+    "frame_budgets": [
+      4,
+      8,
+      16
+    ],
+    "warmup_runs": 3,
+    "seed": 42,
+    "generation": {
+      "max_new_tokens": 2,
+      "do_sample": false
+    },
+    "timing_scope": "model.generate only",
+    "processor_included": false,
+    "sampling_included": false
+  },
+  "summary": {
+    "uniform": {
+      "4": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 124.18055286010106,
+          "median": 122.55405262112617,
+          "p95": 128.2990537583828,
+          "std": 3.592883240693925
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 153.0333993335565,
+          "median": 152.78730168938637,
+          "p95": 154.2273350059986,
+          "std": 1.0918890438671958
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 243.39540178577104,
+          "median": 241.05022102594376,
+          "p95": 250.86523219943047,
+          "std": 6.61665600132034
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    },
+    "dense": {
+      "4": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 123.16276381413142,
+          "median": 123.05190786719322,
+          "p95": 125.01204013824463,
+          "std": 1.7964155103531234
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 155.88771055142084,
+          "median": 153.26903760433197,
+          "p95": 162.01188042759895,
+          "std": 5.322190028360342
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 237.27954427401224,
+          "median": 239.6841198205948,
+          "p95": 242.43178218603134,
+          "std": 6.687038533961516
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    },
+    "event-aware": {
+      "4": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 126.16933633883794,
+          "median": 125.8811242878437,
+          "p95": 129.29494306445122,
+          "std": 2.991930157030218
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "8": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 161.82958583037058,
+          "median": 162.0197929441929,
+          "p95": 163.26050460338593,
+          "std": 1.5348870352718902
+        },
+        "generated_token_counts": [
+          2
+        ]
+      },
+      "16": {
+        "num_samples": 3,
+        "latency_ms": {
+          "mean": 237.93955519795418,
+          "median": 239.88239839673042,
+          "p95": 242.4752116203308,
+          "std": 5.758375474826016
+        },
+        "generated_token_counts": [
+          2
+        ]
+      }
+    }
+  },
+  "samples": {
+    "uniform": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 122.55405262112617,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 121.68855220079422,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 128.2990537583828,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 152.0855613052845,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 152.78730168938637,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 154.2273350059986,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 238.27075213193893,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 241.05022102594376,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 250.86523219943047,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    },
+    "dense": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 125.01204013824463,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 121.4243434369564,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 123.05190786719322,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 162.01188042759895,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 152.38221362233162,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 153.26903760433197,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 229.7227308154106,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 239.6841198205948,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 242.43178218603134,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    },
+    "event-aware": {
+      "4": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 129.29494306445122,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 125.8811242878437,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 123.3319416642189,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "8": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 160.20845994353294,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 163.26050460338593,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 162.0197929441929,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ],
+      "16": [
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_150.mp4",
+          "latency_ms": 242.4752116203308,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_11.mp4",
+          "latency_ms": 231.4610555768013,
+          "generated_tokens": 2,
+          "answer": "C"
+        },
+        {
+          "video_path": "./VRU_videos/CAP_DATA/VRU_225.mp4",
+          "latency_ms": 239.88239839673042,
+          "generated_tokens": 2,
+          "answer": "C"
+        }
+      ]
+    }
+  },
+  "failures": []
+}

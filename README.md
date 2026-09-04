@@ -1,203 +1,267 @@
 # Qwen2.5-VL for Driving Video Temporal Understanding
 
-> Parameter-efficient fine-tuning of Qwen2.5-VL-7B for multi-frame driving scene understanding and safety-critical reasoning.
 
-## Overview
-
-This project explores **multi-frame visual question answering and temporal reasoning for safety-critical driving scenarios** using **Qwen2.5-VL-7B-Instruct**.
-
-The model is adapted to the driving domain through **LoRA supervised fine-tuning (SFT)** on the Automingo dataset. Each sample contains five temporally ordered driving frames together with a question, answer, and reasoning annotation.
-
-Rather than replacing real-time perception systems such as object detection or BEV-based models, this project focuses on **offline analysis of recorded driving data**, including scene understanding, event reasoning, and safety-related question answering.
-
-The project currently covers:
-
-- Automingo → Qwen2.5-VL multimodal SFT data conversion
-- LoRA fine-tuning with the official Qwen training framework
-- Controlled Base vs. LoRA evaluation
-- MCQ accuracy and reasoning-quality evaluation
-- Future exploration of frame-sampling efficiency and inference deployment
+> Parameter-efficient fine-tuning and frame-sampling analysis of Qwen2.5-VL-7B for multi-frame driving scene understanding and safety-critical reasoning.
 
 ---
 
-## Motivation
+## 🎯 Overview
 
-Traditional driving perception systems are highly effective at tasks such as object detection, lane detection, and spatial localization. However, offline driving-data analysis often requires higher-level understanding across multiple frames, including:
+This project adapts **Qwen2.5-VL-7B-Instruct** to safety-critical driving scenarios through **LoRA fine-tuning**, and investigates how different **video frame sampling strategies** affect multimodal reasoning performance.
 
+The system supports multi-frame visual question answering over offline driving footage, with a focus on:
+
+- Dynamic scene understanding
+- Vulnerable road user (VRU) behavior
+- Accident and near-accident analysis
 - Temporal event relationships
-- Safety-critical scene understanding
-- Risk interpretation
-- Reasoning about dynamic changes
+- Safety-critical reasoning
 
-This project investigates whether domain-specific LoRA fine-tuning can improve Qwen2.5-VL's ability to understand and reason about these multi-frame driving scenarios.
+**Target use case:** offline analysis of recorded driving data, such as fleet dashcam logs, accident replay, and hard-case mining.
 
----
+> This project is designed for offline video understanding and is **not intended for real-time vehicle control**.
 
-## Pipeline
+### Research Questions
 
-```text
-Automingo Dataset
-        │
-        ▼
-Parquet Parsing
-        │
-        ▼
-5-Frame Temporal Samples
-        │
-        ▼
-Qwen Multimodal SFT Format
-        │
-        ▼
-Qwen2.5-VL-7B-Instruct
-        │
-        ▼
-LoRA Fine-Tuning
-        │
-        ▼
-Base vs. LoRA Evaluation
-        │
-        ├── MCQ Accuracy
-        └── Lingo-Judge
-```
-
-The original Automingo images are stored as binary data inside Parquet files. A custom preprocessing pipeline extracts the five temporal frames, saves them as PNG files, and converts the question, answer, and reasoning annotations into the multimodal conversation format expected by Qwen2.5-VL.
+1. Can domain-specific LoRA fine-tuning improve a general-purpose VLM on safety-critical driving QA?
+2. How much does **frame selection** matter under a limited visual-token budget?
+3. Is concentrating frames around high-motion events actually better than preserving global temporal context?
 
 ---
 
-## Dataset
+## 📊 Key Results
 
-Experiments are based on the **Automingo** safety-critical driving dataset.
+### Experiment 1 — Domain LoRA Fine-Tuning
 
-```text
-Training samples:     3,256
-Validation samples:   1,055
-Frames per sample:    5
-```
-
-Each training sample contains temporally ordered driving images together with a question and supervised **Answer + Reasoning** output, allowing the model to learn both answer prediction and driving-scene reasoning.
-
----
-
-## Fine-Tuning
-
-The project uses the **official Qwen VL fine-tuning implementation** with PEFT LoRA rather than introducing an additional third-party training framework.
-
-Current configuration:
-
-```text
-Model              Qwen2.5-VL-7B-Instruct
-Training           LoRA SFT
-Epochs             2
-Learning Rate      5e-5
-Effective Batch    8
-
-LoRA Rank          64
-LoRA Alpha         128
-LoRA Dropout       0.05
-
-Target Modules     Attention + FFN
-Vision Encoder     Frozen
-Precision          BF16
-FlashAttention2    Enabled
-```
-
-Training is designed to run on a **single RTX 4090 24GB GPU**. The final run required approximately **1 hour 18 minutes** for 814 optimizer steps.
-
----
-
-## Results
-
-Base and LoRA models are evaluated on the same **1,055-sample Automingo validation set** using identical five-frame inputs, system prompts, generation settings, and scoring procedures.
+Evaluation on the **Automingo** driving QA validation set:
 
 | Model | MCQ Accuracy | Lingo-Judge Agreement |
-|---|---:|---:|
+|:---|:---:|:---:|
 | Qwen2.5-VL-7B Base | 76.40% | 61.71% |
 | **Qwen2.5-VL-7B + LoRA** | **81.62%** | **73.74%** |
 | **Improvement** | **+5.22 pp** | **+12.03 pp** |
 
-Domain-specific LoRA fine-tuning improves both multiple-choice accuracy and the agreement between generated **Answer + Reasoning** responses and reference annotations.
+Domain-specific LoRA fine-tuning improves both answer accuracy and agreement with the reasoning-quality evaluator, with a particularly large gain on **Lingo-Judge (+12.03 pp)**.
+
+### Experiment 2 — Frame Sampling Ablation
+
+To study the trade-off between temporal coverage and visual input cost, three sampling strategies were evaluated on **1,200 QA pairs from 200 VRU-Accident videos**.
+
+| Frames | Uniform | Dense | Event-aware |
+|:---:|:---:|:---:|:---:|
+| **4** | 59.00% | 58.67% | **60.17%** |
+| **8** | 60.08% | 59.17% | **60.25%** |
+| **16** | **62.17%** | 59.58% | 62.00% |
+
+### Main Observations
+
+- Increasing the frame budget generally improves performance, but also substantially increases visual input cost.
+- **Event-aware sampling performs best under constrained 4–8 frame budgets.**
+- At 16 frames, simple **uniform sampling reaches the highest accuracy (62.17%)**.
+- Surprisingly, **dense high-motion sampling consistently underperforms uniform sampling**.
+
+This last result became one of the most interesting findings of the project.
 
 ---
 
-## Evaluation
+## 🔬 Counterintuitive Finding: More "Important" Frames Are Not Always Better
 
-Evaluation follows the **Automingo official protocol** as closely as possible.
+A natural assumption for accident-video understanding is:
 
-For Qwen2.5-VL, a lightweight evaluation entry point is implemented to read the local Parquet validation shards directly while preserving:
+> **Focus more frames around the moment where the largest visual change occurs.**
 
-- Five-frame temporal ordering
-- Official NCAP system prompt
-- Identical generation parameters
-- Official MCQ construction
-- Official accuracy calculation
-- Lingo-Judge evaluation
+The experiments suggest otherwise.
 
-This avoids unnecessary Hugging Face Arrow cache generation while keeping Base and LoRA evaluation directly comparable.
+Dense sampling intentionally allocates more frames to high-motion regions. However, its accuracy remains below uniform sampling across all tested frame budgets:
+
+| Frames | Uniform | Dense | Difference |
+|:---:|:---:|:---:|:---:|
+| 4 | 59.00% | 58.67% | -0.33 pp |
+| 8 | 60.08% | 59.17% | -0.91 pp |
+| 16 | 62.17% | 59.58% | **-2.59 pp** |
+
+### Why might this happen?
+
+High inter-frame pixel change does not necessarily correspond to the most useful semantic information.
+
+Around an accident, high-motion regions may contain:
+
+- Motion blur
+- Camera shake
+- Abrupt ego-vehicle movement
+- Visually redundant collision frames
+
+Meanwhile, concentrating too many samples around the collision can reduce coverage of the **pre-event context** needed to answer questions such as:
+
+- Where did the pedestrian come from?
+- Was the vehicle already approaching the pedestrian?
+- What happened immediately before the collision?
+- How did the relative positions of the road users change?
+
+The results therefore suggest that for driving-video reasoning:
+
+> **Temporal coverage can be more valuable than simply concentrating visual tokens around the highest-motion moment.**
+
+This also explains why event-aware sampling is most useful when the frame budget is small: it attempts to preserve global context while selectively allocating limited frames to potentially informative events.
 
 ---
 
-## Roadmap
-
-The next stage focuses on the trade-off between **temporal information, visual token cost, and inference latency**.
-
-### Frame Sampling
-
-Planned experiments include:
-
-- Uniform sampling
-- Dense sampling around dynamic events
-- Event-aware sampling based on inter-frame changes
-
-The goal is not simply to maximize accuracy, but to investigate whether similar performance can be maintained with fewer visual tokens and lower latency, or whether better accuracy can be achieved under the same token budget.
-
-### Deployment
-
-Planned deployment pipeline:
+## 🏗️ Pipeline
 
 ```text
-LoRA
-  │
-  ▼
-Merge
-  │
-  ▼
-SGLang
-  │
-  ▼
-OpenAI-Compatible API
-  │
-  ▼
-Gradio Demo
+Automingo Dataset (Parquet)
+        │
+        │ binary images → decode → PNG
+        ▼
+5-Frame Temporal Samples
+        │
+        │ multi-image conversation format
+        ▼
+Qwen Multimodal SFT Dataset
+        │
+        ▼
+Qwen2.5-VL-7B-Instruct
+        +
+       LoRA
+        │
+        │ Vision Encoder Frozen
+        │ Attention + FFN LoRA
+        ▼
+Domain-Adapted Driving VLM
+        │
+        ├── Automingo Evaluation
+        │     ├── MCQ Accuracy
+        │     └── Lingo-Judge
+        │
+        └── VRU-Accident Evaluation
+              └── Frame Sampling Ablation
+                    ├── Uniform
+                    ├── Dense
+                    └── Event-aware
 ```
 
-The final demo is planned to support:
+---
 
-- Driving video upload
-- Sampling-strategy selection
-- Sampled-frame visualization
-- Driving-scene question answering
-- Answer + Reasoning generation
-- Inference latency and frame statistics
+## 🧪 Fine-Tuning Configuration
+
+| Configuration | Value |
+|:---|:---|
+| **Base Model** | Qwen2.5-VL-7B-Instruct |
+| **Training Method** | LoRA SFT |
+| **Epochs** | 2 |
+| **Learning Rate** | 5e-5 |
+| **Effective Batch Size** | 8 (BS=1, Grad Accum=8) |
+| **LoRA Rank / Alpha** | r=64, alpha=128 |
+| **LoRA Targets** | q/k/v/o_proj + up/down/gate_proj |
+| **Vision Encoder** | Frozen |
+| **Precision** | BF16 |
+| **Attention** | FlashAttention2 |
+| **Memory Optimization** | Gradient Checkpointing |
+| **Hardware** | NVIDIA RTX 4090 24GB |
+| **Training Time** | ~1h 18min |
+| **Training Steps** | 814 |
+
+The training configuration was designed to make domain adaptation feasible on a **single consumer 24GB GPU** while preserving the pretrained visual representation.
 
 ---
 
-## Tech Stack
+## 📂 Datasets
 
-`Python` · `PyTorch` · `Transformers` · `Qwen2.5-VL` · `PEFT/LoRA` · `FlashAttention2` · `Hugging Face` · `PyArrow` · `SGLang`
+| Dataset | Purpose | Samples | Frames | Description |
+|:---|:---|:---:|:---:|:---|
+| **Automingo Train** | LoRA SFT | 3,256 | 5 | Safety-critical driving QA with answer and reasoning |
+| **Automingo Val** | Base vs. LoRA evaluation | 1,055 | 5 | In-domain driving QA |
+| **VRU-Accident** | Sampling ablation | 200 videos / 1,200 QA | 4 / 8 / 16 | Real-world accident and VRU interaction videos |
+
+The VRU-Accident evaluation subset contains videos from multiple sources, including **DADA-2000, DoTA, CAP_DATA, and manually curated samples**, with six QA pairs per video.
 
 ---
 
-## Project Status
+## 🚀 Deployment
 
-**In Progress**
+The fine-tuned model is deployed as a complete video-to-answer inference pipeline:
 
-- [x] Automingo data preprocessing
-- [x] Qwen multimodal SFT conversion
-- [x] LoRA fine-tuning
-- [x] Base model evaluation
-- [x] LoRA model evaluation
-- [x] MCQ / Lingo-Judge comparison
-- [ ] Frame sampling ablation
-- [ ] Visual token / latency analysis
-- [ ] SGLang deployment
-- [ ] Interactive demo
+```text
+Video Upload
+    ↓
+OpenCV Decode
+    ↓
+Frame Sampling
+    ↓
+Qwen2.5-VL Input Construction
+    ↓
+SGLang OpenAI-Compatible API
+    ↓
+Answer + Reasoning
+    ↓
+Gradio UI
+```
+
+### Deployment Stack
+
+- **Inference backend:** SGLang
+- **API:** OpenAI-compatible HTTP endpoint
+- **Frontend:** Gradio
+- **Frame strategies:** Uniform / Dense / Event-aware
+- **Frame budgets:** 4 / 8 / 16
+- **Output:** Answer + reasoning + selected-frame visualization
+- **GPU:** Single RTX 4090 24GB
+
+The frontend is kept stateless and communicates with the SGLang inference server through HTTP, separating model serving from application logic.
+
+---
+
+## 🛠️ Tech Stack
+
+`Python 3.11` · `PyTorch 2.6` · `Transformers 4.57.6` · `Qwen2.5-VL` · `PEFT 0.20.0` · `LoRA` · `FlashAttention2` · `DeepSpeed 0.17.1` · `SGLang 0.5.18` · `Gradio` · `OpenCV`
+
+---
+
+## 📁 Repository Structure
+
+```text
+Qwen2.5-VL-Driving-Video-Understanding/
+│
+├── assets/
+│   # Figures and media used in the README
+│
+├── deployment/
+│   └── app.py
+│       # Gradio demo with SGLang API backend
+│
+├── evaluation/
+│   └── evaluate_qwen25.py
+│       # Base / LoRA evaluation on Automingo
+│
+├── experiment2_sampling/
+│   ├── sampling_strategies.py
+│   │   # Uniform / Dense / Event-aware frame sampling
+│   │
+│   ├── evaluate_sampling.py
+│   │   # Frame sampling evaluation on VRU-Accident
+│   │
+│   ├── benchmark_latency.py
+│   │   # End-to-end inference latency benchmark
+│   │
+│   └── results/
+│       ├── uniform_*.json
+│       ├── dense_*.json
+│       ├── event-aware_*.json
+│       └── latency_*.json
+│           # Accuracy and latency experiment results
+│
+├── training/
+│   ├── automingo_7b_lora.sh
+│   │   # Qwen2.5-VL-7B LoRA training configuration
+│   │
+│   ├── finetune_sweep.py
+│   │   # Fine-tuning experiment utilities
+│   │
+│   ├── results_base_1055_both.json
+│   └── results_lora_v2_1055_both.json
+│       # Base vs. LoRA evaluation results
+│
+└── README.md
+```
+---
+
