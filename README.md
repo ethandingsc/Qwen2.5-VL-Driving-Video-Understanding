@@ -211,6 +211,24 @@ The frontend is kept stateless and communicates with the SGLang inference server
 
 ---
 
+### Gradio Demo
+
+The Gradio interface provides an end-to-end workflow from video upload and frame sampling to multimodal reasoning.
+
+<p align="center">
+  <img src="assets/2026-09-06%20090453.png" width="90%">
+  <br>
+  <em>Video upload and inference configuration.</em>
+</p>
+
+<p align="center">
+  <img src="assets/2026-09-06%20090519.png" width="90%">
+  <br>
+  <em>Selected-frame visualization and model-generated answer with reasoning.</em>
+</p>
+
+---
+
 ## 🛠️ Tech Stack
 
 `Python 3.11` · `PyTorch 2.6` · `Transformers 4.57.6` · `Qwen2.5-VL` · `PEFT 0.20.0` · `LoRA` · `FlashAttention2` · `DeepSpeed 0.17.1` · `SGLang 0.5.18` · `Gradio` · `OpenCV`
