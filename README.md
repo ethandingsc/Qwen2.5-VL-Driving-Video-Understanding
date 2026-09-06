@@ -4,6 +4,9 @@
 > Parameter-efficient fine-tuning and frame-sampling analysis of Qwen2.5-VL-7B for multi-frame driving scene understanding and safety-critical reasoning.
 
 ---
+<p align="center">
+  <img src="assets/Image13_02_33.png" alt="Qwen2.5-VL Driving Video Temporal Understanding Architecture" width="100%">
+</p>
 
 ## 🎯 Overview
 
